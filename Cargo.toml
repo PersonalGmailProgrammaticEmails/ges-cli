@@ -2,6 +2,7 @@
 name = "ges-cli"
 version = "0.1.0"
 edition = "2021"
+description = "The CLI for the ges program"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -9,6 +10,7 @@ edition = "2021"
 tokio = { version = "^1.0.0", features = ["full"] }
 prost = "^0.12.3"
 tonic = { version = "^0.11.0", features = ["prost", "tls", "tls-webpki-roots"] }
+clap = { version = "4.5.4", features = ["derive"] }
 
 [build-dependencies]
 tonic-build = { version = "^0.11.0" }
