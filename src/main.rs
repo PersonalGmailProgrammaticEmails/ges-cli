@@ -1,6 +1,6 @@
 use clap::Parser;
-use ges_cli::ges_protos::ges_proto_service_client::GesProtoServiceClient;
-use ges_cli::ges_protos::{SendEmailRequest};
+use ges_cli::ges_interface::email_service_client::EmailServiceClient;
+use ges_cli::ges_interface::{EmailRequest};
 
 
 #[derive(Parser, Debug)]
@@ -36,10 +36,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let body = std::fs::read_to_string(body_file)?;
 
     println!("Connecting to personal cli service...");
-    let mut connect = GesProtoServiceClient::connect("http://localhost:50055").await?;
+    let mut connect = EmailServiceClient::connect("http://localhost:50055").await?;
     println!("Connected!");
 
-    let email_response = connect.send_email(SendEmailRequest {emails: recipients, subject, body}).await?;
+    let email_response = connect.send_email(EmailRequest {recipients, subject, the_message: body}).await?;
     println!("{:?}", email_response);
 
     Ok(())

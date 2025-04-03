@@ -1,3 +1,3 @@
-pub mod ges_protos {
-        tonic::include_proto!("ges_protos");
+pub mod ges_interface {
+        tonic::include_proto!("ges_interface");
 }

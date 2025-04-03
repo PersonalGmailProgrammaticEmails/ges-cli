@@ -1,5 +1,5 @@
 fn main() {
     tonic_build::configure()
-        .compile(&["GesProtobuf/ges.proto"], &["./GesProtobuf/"])
+        .compile(&["GesProtobuf/ges_interface.proto"], &["./GesProtobuf/"])
         .unwrap();
 }
